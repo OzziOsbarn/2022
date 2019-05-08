@@ -1,0 +1,72 @@
+#include<iostream>
+#include<string>
+#include<vector>
+#include<random>>
+#include<time.h>
+#include <algorithm>
+
+using namespace std;
+
+int main()
+{
+	setlocale(LC_ALL, "Russian");
+	vector<string> Spis = {
+	"Баранов Дмитрий",
+"Борисова Екатерина",
+"Гайфулина Анастасия",
+"Гончарова Анжелика",
+"Дыхова Анна",
+"Забатурина Ирина",
+"Зайцев Михаил",
+"Корышев Николай",
+"Куртова Марина",
+"Латыпов Наиль",
+"Лысых Алексей",
+"Мазурок Олег",
+"Миронов Данила",
+"Осипов Даниил",
+"Попова Дарьяна",
+"Сарыглар Сайхо",
+"Сарыглар Чечена",
+"Татаренко Владислав",
+"Терехин Александр",
+"Федоров Евгений"
+	};
+	srand(time(0));
+	int ISpis = 20;
+	vector<int> Provver;
+	while(ISpis!=0)
+	{
+		int Elem = 0;
+		int RNom = rand()%20;
+		if (Provver.size() == 0)
+			Elem = 1;
+		else
+		{
+			Elem = 1;
+			for (int i = 0; i < Provver.size(); i++)
+			{
+				if (Provver[i] == RNom)
+				{
+					Elem = 2;
+					break;
+				}
+			}
+		}
+
+		if (Elem == 1)
+		{
+			cout << RNom << endl;
+			Provver.push_back(RNom);
+			ISpis--;
+		}
+	}
+	system("cls");
+	for (int i = 0; i < 20; i++)
+	{
+		cout << i + 1 << ")" << Spis[Provver[i]] << endl;
+	}
+
+	system("pause");
+	return 0;
+}
